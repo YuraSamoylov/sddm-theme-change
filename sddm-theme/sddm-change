@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+function theme_list_in_rofi {
+	theme=$(ls -d /usr/share/sddm/themes/*/ | sed 's|/usr/share/sddm/themes/||; s|/$||' | rofi -dmenu -p "Choose sdmm theme")
+	sudo python3 $HOME/.bin/sddm-theme/theme_change.py $theme
+}
+
+theme_list_in_rofi
